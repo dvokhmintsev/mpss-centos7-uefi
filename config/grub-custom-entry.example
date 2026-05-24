@@ -1,0 +1,23 @@
+# Persistent boot entry for the custom kernel.
+#
+# If GRUB is owned by another Linux distribution (e.g. on a dual-boot system),
+# add an explicit menuentry to /etc/grub.d/40_custom on the GRUB-owning system,
+# then regenerate the config with `update-grub` (Debian/Ubuntu) or
+# `grub2-mkconfig` (RHEL/CentOS).
+#
+# Replace the fs-uuid and root device with values for your system:
+#   blkid                       # find the /boot (or root) filesystem UUID
+#   ls /boot/vmlinuz-*          # confirm the kernel/initramfs file names
+
+menuentry 'CentOS 7 - Xeon Phi (3.10.0-693)' {
+    insmod part_gpt
+    insmod xfs
+    search --no-floppy --fs-uuid --set=root REPLACE-WITH-BOOT-FS-UUID
+    linux  /vmlinuz-3.10.0-693.el7.x86_64 root=/dev/mapper/centos-root
+    initrd /initramfs-3.10.0-693.el7.x86_64.img
+}
+
+# If CentOS owns GRUB instead, simply set the custom kernel as default:
+#   grub2-set-default 'CentOS Linux (3.10.0-693.el7.x86_64) 7 (Core)'
+#   grub2-mkconfig -o /boot/grub2/grub.cfg          # BIOS
+#   grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg # UEFI

@@ -1,0 +1,28 @@
+# Build artifacts and downloads must never be committed -- the scripts
+# regenerate them. Only sources (scripts, patch, config, docs) are tracked.
+
+# Downloaded sources / archives
+*.src.rpm
+*.rpm
+*.tar
+*.tar.*
+mpss-*-linux.tar
+
+# Build outputs
+*.img
+*.ko
+*.log
+kernel-build.log
+mpss-modules-build.log
+
+# rpmbuild trees if run inside the repo
+rpmbuild/
+BUILD/
+BUILDROOT/
+RPMS/
+SRPMS/
+
+# Editor / OS noise
+*~
+.*.swp
+.DS_Store

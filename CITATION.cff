@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "mpss-centos7-uefi: Reproducible deployment of Intel Xeon Phi (Knights Corner) coprocessors on UEFI CentOS 7"
+abstract: >-
+  A reproducible toolkit and kernel configuration patch that deploys Intel Xeon
+  Phi Knights Corner (KNC) coprocessors with MPSS 3.8.6 on UEFI-based CentOS 7.9
+  / RHEL 7 hosts, by resolving an undocumented kernel module-signature
+  enforcement deadlock caused by firmware that mis-reports UEFI Secure Boot.
+type: software
+authors:
+  - family-names: Vokhmintsev
+    given-names: Dmitrii
+    orcid: "https://orcid.org/0000-0003-4531-118X"
+    affiliation: "Independent researcher, Saint Petersburg, Russia"
+version: "1.0.0"
+date-released: "2026-05-24"
+license: Apache-2.0
+doi: 10.5281/zenodo.20367667
+repository-code: "https://github.com/dvokhmintsev/mpss-centos7-uefi"
+url: "https://github.com/dvokhmintsev/mpss-centos7-uefi"
+keywords:
+  - Intel Xeon Phi
+  - Knights Corner
+  - MPSS
+  - UEFI Secure Boot
+  - kernel module signing
+  - CentOS 7

@@ -1,0 +1,13 @@
+mpss-centos7-uefi
+Copyright 2026 Dmitrii Vokhmintsev
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+If you use this software, please cite it:
+  D. Vokhmintsev, mpss-centos7-uefi, Zenodo, 2026.
+  doi:10.5281/zenodo.20367667
+
+This product builds and configures the Linux kernel and Intel MPSS
+mpss-modules, which remain under their own licenses (GPL-2.0). This
+repository distributes only original deployment scripts and a kernel
+configuration patch; it does not redistribute those upstream sources.

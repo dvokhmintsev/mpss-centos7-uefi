@@ -1,0 +1,25 @@
+# Example ~/.ssh/config on a workstation used to reach the host and the card.
+#
+# Replace the host alias, address, and key path with your own. The card (mic0)
+# is reached via ProxyJump through the host, since it sits on an internal
+# 172.31.x.x link. If the host is reinstalled (or dual-boots different systems
+# on one address), its host key may change; StrictHostKeyChecking no +
+# UserKnownHostsFile /dev/null suppress the resulting "host key changed" warning.
+#
+# SECURITY NOTE: these two options disable SSH host-key (MITM) protection for
+# this host. They are a convenience for a frequently-reimaged lab box on a
+# trusted LAN. Once the host is stable, prefer removing them and pinning its
+# host key in known_hosts instead.
+
+Host mpss-host
+    HostName 192.0.2.10          # <-- your MPSS host's IP or hostname
+    User root
+    IdentityFile ~/.ssh/id_mpss_host
+    IdentitiesOnly yes
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+
+Host mic0
+    HostName 172.31.1.1          # MPSS default host-side address for mic0
+    User root
+    ProxyJump mpss-host
